@@ -15,9 +15,11 @@ public class Manejador {
 	 
 	 public void addLinea(int x1,int y1,int x2,int y2){
 		 lineas.add(new Linea(new PuntoPlano(x1,y1),new PuntoPlano(x2,y2)));
+		 lineas.get(lineas.size()-1).setColor(color);
 	 }
 	 public void addCirculo(int x1,int y1,int x2,int y2){
 		 circulos.add(new Circulo(new PuntoPlano(x1,y1),new PuntoPlano(x2,y2)));
+		 circulos.get(circulos.size()-1).setColor(color);
 	 }
 	 public void addRelleno(int x1,int y1){
 		 PuntosRelleno.add(new PuntoPlano(x1,y1));
@@ -100,6 +102,28 @@ public class Manejador {
 	private void escalarLineas(int tx, int ty) {
 		for (int x=0;x<lineas.size();x++){
 			lineas.get(x).escalar(tx, ty);;
+		}
+	}
+	
+	public void reflejar(int tx, int ty){
+		reflejarLineas( tx,  ty);
+		reflejarCirculos( tx,  ty);
+		reflejarRellenos( tx,  ty);
+		dibujar();
+	}
+	private void reflejarCirculos(int tx, int ty) {
+		for (int x=0;x<circulos.size();x++){
+			circulos.get(x).reflejar(tx, ty);
+		}
+	}
+	private void reflejarRellenos(int tx, int ty) {
+		for (int x=0;x<PuntosRelleno.size();x++){
+			PuntosRelleno.get(x).reflejar(tx, ty);
+		}
+	}
+	private void reflejarLineas(int tx, int ty) {
+		for (int x=0;x<lineas.size();x++){
+			lineas.get(x).reflejar(tx, ty);;
 		}
 	}
 	public void rotar(int g,int tx, int ty){

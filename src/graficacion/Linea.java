@@ -19,8 +19,9 @@ public class Linea {
 		p1.rotar(g,p);
 		p2.rotar(g,p);
 	}
-	public void reflajar(int x, int y){
-		 
+	public void reflejar(int x, int y){
+		 p1.reflejar(x, y);
+		 p2.reflejar(x, y);
 	}
 	public void escalar(int sx, int sy){
 		p1.escalar(sx, sy);

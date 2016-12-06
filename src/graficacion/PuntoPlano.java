@@ -24,7 +24,10 @@ public class PuntoPlano {
 		y=(int) (p.getY()+(y-p.getY())*Math.cos(Math.toRadians(g))+(x-p.getX())*Math.sin(Math.toRadians(g)));
 	}
 	public void reflejar(int x, int y){
-		
+		int difx = x-this.x;
+		int dify = y-this.y;
+		this.x=x+difx;
+		this.y=y+dify;
 	}
 	public void escalar(int sx, int sy){
 		x=x*sx;
